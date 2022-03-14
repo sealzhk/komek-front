@@ -1,0 +1,38 @@
+<div class="row pt-5">
+    <div class="col-md-6 mx-auto">
+        <div class="card shadow-lg rounded border-0 text-center">
+            <div class="card-header bg-transparent">
+                <h2 class="mb-0 py-2">Sign Up</h2>
+            </div>
+            <div class="card-body m-3">
+                <form class="form">
+                    <div class="form-group py-2">
+                        <div class="row">
+                          <div class="col">
+                            <input type="text" #nameRef="ngModel" required class="form-control" placeholder="First Name" name="firstname" [(ngModel)]="registerUserData.firstname">
+                            <div [hidden]="nameRef.valid || nameRef.pristine" class="alert alert-danger">First name is required</div>
+                          </div>
+                          <div class="col">
+                            <input type="text" class="form-control" placeholder="Last Name" name="lastname" [(ngModel)]="registerUserData.lastname">
+                          </div>
+                        </div>
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="text" #emailRef="ngModel" required class="form-control"  placeholder="Email" name="email" [(ngModel)]="registerUserData.email">
+                        <div [hidden]="emailRef.valid || emailRef.pristine" class="alert alert-danger">Email is required</div>
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="password" #passRef="ngModel" required class="form-control" placeholder="Password" name="password" [(ngModel)]="registerUserData.password">
+                        <div [hidden]="passRef.valid || passRef.pristine" class="alert alert-danger">Password is required</div>
+                    </div>  
+                     <button (click)="registerUser()" type="button" class="btn btn-outline-info mt-4">Sign up to Kömek</button>                 
+                </form>
+            </div>
+            <div class="card-footer bg-transparent">
+                <p class="text-center">Kömek’s fee is 5% from each donation you receive. By continuing, you agree to the Kömek 
+                    <a href="#" class="link-success">terms</a> and acknowledge receipt of our 
+                    <a href="#" class="link-success">privacy policy</a>.</p>
+            </div>
+        </div>
+    </div>
+</div>

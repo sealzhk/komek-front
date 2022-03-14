@@ -1,0 +1,25 @@
+<div class="row pt-5">
+    <div class="col-md-6 mx-auto">
+        <div class="card shadow-lg rounded border-0 text-center">
+            <div class="card-header bg-transparent">
+                <h2 class="mb-0 py-2">Sign In</h2>
+            </div>
+            <div class="card-body m-3">
+                <form class="form">
+                    <div class="form-group py-2">
+                        <input type="text" #emailRef="ngModel" required class="form-control"  placeholder="Email" name="email" [(ngModel)]="loginUserData.email">
+                        <div [hidden]="emailRef.valid || emailRef.pristine" class="alert alert-danger">Email is required</div>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" #passRef="ngModel" required class="form-control" placeholder="Password" name="password" [(ngModel)]="loginUserData.password">
+                        <div [hidden]="passRef.valid || passRef.pristine" class="alert alert-danger">Password is required</div>
+                    </div>  
+                     <button (click)="loginUser()" type="button" class="btn btn-outline-info mt-4">Sign in to Kömek</button>                 
+                </form>
+            </div>
+            <div class="card-footer bg-transparent">
+                <p class="text-center"><a href="#" class="text-danger">Forgot your password?</a></p>
+            </div>            
+        </div>
+    </div>
+</div>

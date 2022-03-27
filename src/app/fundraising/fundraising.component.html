@@ -1,142 +1,138 @@
 <div class="row pt-4">
-    <div class="col-8">
-        <h2>Help Almaty</h2>
-    </div>
+  <div class="col-8">
+    <h2>{{fundraising.title}}</h2>
+  </div>
 </div>
 <div class="row pt-3">
-    <div class="col-8">
-        <div class="card border-0">
-            <img class="card-img-bottom rounded" src="https://imgtest.mir24.tv/uploaded/images/crops/2022/January/870x489_8x600_detail_crop_20220106133042_dd774fd3_2c6744b43f415d055efeff376430f0ad1dee42f42daeb65925274dbd6ba845b6.jpg" alt="Card image cap">
-        </div>
-        <div class="card border-0">
-            <div class="card-header bg-transparent"> 
+  <div class="col-8">
+    <div class="card border-0">
+      <img class="card-img-bottom rounded" src="{{fundraising.imagePath}}" alt="Card image cap">
+    </div>
+    <div class="card border-0">
+      <div class="card-header bg-transparent">
                 <span class="d-inline-block">
                     <i class="bi bi-person-heart text-success" style="font-size: 1.5rem;"></i>
                 </span>
-                <span class="d-inline-block p-3">Daryn is organising this fundraiser.</span>
-            </div>
-            <div class="card-header bg-transparent">
-                <span class="d-inline-block">Created 15 ours ago</span>
-                <span class="d-inline-block px-3">|</span>
-                <span class="d-inline-block btn">Accidents and Emergencies</span>
-            </div>
-            <div class="card-body">Hello everyone.
-                 We are organizing a donation for the restoration of the city of Almaty
-                 after the attacks of terrorists and bandit looters. We ask you to help as much as you can.
-                 Sincerely, Daryn.
-            </div>
-        </div>
-        <div class="card border-0 mt-4">
-            <div class="card-header bg-transparent">
-                <h4>Organizer</h4>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-0 px-3"><i class="bi bi-person-heart text-success" style="font-size: 1.5rem;"></i></div>
-                    <div class="col">
-                        <div class="row"><b>Daryn Nurlan</b></div>
-                        <div class="row">Organizer</div>
-                        <div class="row">Kazakhstan</div>
-                    </div>
-                    <div class="col">
-                        <button type="button" class="btn btn-outline-success float-right px-4">Contact</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card border-0 mt-4">
-            <div class="card-header bg-transparent">
-                <h4>Words of support</h4>
-            </div>
-            <div class="card-body">
-                <div class="row mb-3">
-                    <div class="col-0 px-3"><i class="bi bi-person-heart text-success" style="font-size: 1.5rem;"></i></div>
-                    <div class="col">
-                        <div class="row"><b>Alua Zhakieva donated ₸15000</b></div>
-                        <div class="row">I hope our city will be restored soon!</div>
-                        <div class="row my-3"><small class="font-weight-light">9 hours ago</small></div>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-0 px-3"><i class="bi bi-person-heart text-success" style="font-size: 1.5rem;"></i></div>
-                    <div class="col">
-                        <div class="row"><b>Aida Sadvakasova donated ₸19000</b></div>
-                        <div class="row">I hope our city will be restored soon!</div>
-                        <div class="row my-3"><small class="font-weight-light">10 hours ago</small></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <span class="d-inline-block p-3">{{firstName}} is organising this fundraiser.</span>
+      </div>
+      <div class="card-header bg-transparent">
+        <span class="d-inline-block">Created {{ getDateAgo(fundraising.date) }}</span>
+        <span class="d-inline-block px-3">|</span>
+        <span class="d-inline-block btn">{{category}}</span>
+      </div>
+      <div class="card-body">{{fundraising.details}}</div>
     </div>
-    <div class="col-4">
-        <div class="card shadow-lg rounded border-0">
-            <div class="card-header bg-transparent border-0 mt-3">
-                <span class="d-inline-block"><h5>₸32.2 mil</h5></span>
-                <span class="d-inline-block pl-2">raised out of ₸100 mil goal</span>
-            </div>
-            <div class="card-body">
-                <button type="button" class="btn btn-info btn-lg btn-block shadow-sm">Share</button>
-                <button type="button" class="btn btn-warning btn-lg btn-block shadow-sm">Donate Now</button>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item" style="color: #6E2F91;">
+    <div class="card border-0 mt-4">
+      <div class="card-header bg-transparent">
+        <h4>Organizer</h4>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-0 px-3"><i class="bi bi-person-heart text-success" style="font-size: 1.5rem;"></i></div>
+          <div class="col">
+            <div class="row"><b>{{firstName}} {{lastName}}</b></div>
+            <div class="row">Organizer</div>
+            <div class="row">{{fundraising.city}}</div>
+          </div>
+          <div class="col">
+            <button type="button" class="btn btn-outline-success float-right px-4">Contact</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card border-0 mt-4">
+      <div class="card-header bg-transparent">
+        <h4>Words of support</h4>
+      </div>
+      <div class="card-body">
+        <div class="row mb-3">
+          <div class="col-0 px-3"><i class="bi bi-person-heart text-success" style="font-size: 1.5rem;"></i></div>
+          <div class="col">
+            <div class="row"><b>Alua Zhakieva donated ₸15000</b></div>
+            <div class="row">I hope our city will be restored soon!</div>
+            <div class="row my-3"><small class="font-weight-light">9 hours ago</small></div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-0 px-3"><i class="bi bi-person-heart text-success" style="font-size: 1.5rem;"></i></div>
+          <div class="col">
+            <div class="row"><b>Aida Sadvakasova donated ₸19000</b></div>
+            <div class="row">I hope our city will be restored soon!</div>
+            <div class="row my-3"><small class="font-weight-light">10 hours ago</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="card shadow-lg rounded border-0">
+      <div class="card-header bg-transparent border-0 mt-3">
+        <span class="d-inline-block"><h5>₸32.2 mil</h5></span>
+        <span class="d-inline-block pl-2">raised out of ₸{{getAmount(fundraising.amount_goal)}} goal</span>
+      </div>
+      <div class="card-body">
+        <button type="button" class="btn btn-info btn-lg btn-block shadow-sm">Share</button>
+        <button type="button" class="btn btn-warning btn-lg btn-block shadow-sm" (click)="onDonate(fundraising._id)">Donate Now</button>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" style="color: #6E2F91;">
                         <span class="d-inline-block">
                             <i class="bi bi-arrow-up-right-circle" style="font-size: 2rem;"></i>
                         </span>
-                        <span class="d-inline-block pl-3"><b>9800 donation</b></span>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-0 px-3"><i class="bi bi-person-heart" style="font-size: 2rem;"></i></div>
-                            <div class="col">
-                                <div class="row">Alua Zhakieva</div>
-                                <div class="row">
-                                    <span class="d-inline-block"><b>₸15000</b></span>
-                                    <span class="d-inline-block px-3">|</span>
-                                    <span class="d-inline-block">Resent donation</span>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-0 px-3"><i class="bi bi-person-heart" style="font-size: 2rem;"></i></div>
-                            <div class="col">
-                                <div class="row">Aida Sadvakasova</div>
-                                <div class="row">
-                                    <span class="d-inline-block"><b>₸19000</b></span>
-                                    <span class="d-inline-block px-3">|</span>
-                                    <span class="d-inline-block">Top donation</span>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-0 px-3"><i class="bi bi-person-heart text-success" style="font-size: 2rem;"></i></div>
-                            <div class="col">
-                                <div class="row">Aida Sadvakasova</div>
-                                <div class="row">
-                                    <span class="d-inline-block"><b>₸19000</b></span>
-                                    <span class="d-inline-block px-3">|</span>
-                                    <span class="d-inline-block">First donation</span>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                  </ul>
+            <span class="d-inline-block pl-3"><b>9800 donation</b></span>
+          </li>
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-0 px-3"><i class="bi bi-person-heart" style="font-size: 2rem;"></i></div>
+              <div class="col">
+                <div class="row">Alua Zhakieva</div>
+                <div class="row">
+                  <span class="d-inline-block"><b>₸15000</b></span>
+                  <span class="d-inline-block px-3">|</span>
+                  <span class="d-inline-block">Resent donation</span>
+                </div>
+              </div>
             </div>
-            <div class="card-footer bg-transparent border-0 mb-3">
-                <button type="button" class="btn btn-outline-success px-4"><b>See all</b></button>
-                <button type="button" class="btn btn-outline-info float-right px-3">
-                    <i class="bi bi-star"></i><b class="ml-2">See top donations</b>
-                </button>
+          </li>
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-0 px-3"><i class="bi bi-person-heart" style="font-size: 2rem;"></i></div>
+              <div class="col">
+                <div class="row">Aida Sadvakasova</div>
+                <div class="row">
+                  <span class="d-inline-block"><b>₸19000</b></span>
+                  <span class="d-inline-block px-3">|</span>
+                  <span class="d-inline-block">Top donation</span>
+                </div>
+              </div>
             </div>
-        </div>
+          </li>
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-0 px-3"><i class="bi bi-person-heart text-success" style="font-size: 2rem;"></i></div>
+              <div class="col">
+                <div class="row">Aida Sadvakasova</div>
+                <div class="row">
+                  <span class="d-inline-block"><b>₸19000</b></span>
+                  <span class="d-inline-block px-3">|</span>
+                  <span class="d-inline-block">First donation</span>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="card-footer bg-transparent border-0 mb-3">
+        <button type="button" class="btn btn-outline-success px-4"><b>See all</b></button>
+        <button type="button" class="btn btn-outline-info float-right px-3">
+          <i class="bi bi-star"></i><b class="ml-2">See top donations</b>
+        </button>
+      </div>
     </div>
-    <!-- <h1>Titile</h1>
-    <div>Image</div>
-    <div>Sidebar</div>
-    <div>Description</div>
-    <div>Content</div>
-    <div>Report</div> -->
+  </div>
+  <!-- <h1>Titile</h1>
+  <div>Image</div>
+  <div>Sidebar</div>
+  <div>Description</div>
+  <div>Content</div>
+  <div>Report</div> -->
 </div>

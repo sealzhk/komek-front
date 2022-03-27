@@ -7,6 +7,7 @@ import { AuthService } from '../service/auth.service';
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css']
 })
+
 export class SigninComponent implements OnInit {
 
   loginUserData:any = {}
@@ -19,10 +20,11 @@ export class SigninComponent implements OnInit {
   loginUser(){
     this._auth.loginUser(this.loginUserData)
       .subscribe(
-        res => { 
+        res => {
           console.log(res),
-          localStorage.setItem('token', res.token),
-          this._router.navigate(['/'])
+            localStorage.setItem('token', res.token),
+            localStorage.setItem('user_id', res.user_id),
+            this._router.navigate(['/'])
         },
         err => console.log(err)
       )

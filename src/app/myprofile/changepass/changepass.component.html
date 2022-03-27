@@ -6,20 +6,23 @@
       <form>
         <div class="form-group mb-5">
           <label for="currentpass">Current password</label>
-          <input required type="currentpass" class="form-control" placeholder="Enter current password" id="currentpass">
+          <input required type="password" #curPass="ngModel" class="form-control" placeholder="Enter current password" id="currentpass" [(ngModel)]="checkingPass.oldPass">
+          <div [hidden]="curPass.valid || curPass.pristine" class="alert alert-danger">Password is required</div>
         </div>
         <div class="form-group mb-5">
           <label for="newpass">New password</label>
-          <input required type="newpass" class="form-control" placeholder="Enter new password" id="newpass">
+          <input required type="password" #newPass="ngModel" class="form-control" placeholder="Enter new password" id="newpass" [(ngModel)]="checkingPass.newPass">
+          <div [hidden]="newPass.valid || newPass.pristine" class="alert alert-danger">Password is required</div>
         </div>
         <div class="form-group mb-5">
           <label for="newpassagain">New password again</label>
-          <input required type="newpassagain" class="form-control" placeholder="Enter new password again" id="newpassagain">
+          <input required type="password" #newPassAgain="ngModel" class="form-control" placeholder="Enter new password again" id="newpassagain" [(ngModel)]="checkingPass.newPassAgain">
+          <div [hidden]="newPassAgain.valid || newPassAgain.pristine" class="alert alert-danger">Password is required</div>
         </div>
       </form>
     </div>
     <div class="d-flex justify-content-center">
-      <a class="btn mb-4" (click)="onSelectProfile()" role="button" style="background-color: #E5E5E5; width: 25%">Change</a>
+      <a class="btn mb-4" (click)="updatePasswordData()" role="button" style="background-color: #E5E5E5; width: 25%">Change</a>
       <a class="btn ml-2 mb-4" (click)="onSelectProfile()" role="button" style="background-color: #E5E5E5; width: 25%">Go Back</a>
     </div>
   </div>

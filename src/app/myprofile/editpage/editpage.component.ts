@@ -47,12 +47,7 @@ export class EditpageComponent implements OnInit {
   }
 
   updateProfileData() {
-    const fd = new FormData();
-    fd.append('firstname', this.user.firstname)
-    fd.append('lastname', this.user.lastname)
-    fd.append('birthday', this.user.birthday)
-    fd.append('gender', this.user.gender)
-    this._authService.putUserById(this.userID, fd)
+    this._authService.putUserById(this.userID, this.user)
       .subscribe(
         res => {
           console.log(res)
@@ -61,7 +56,5 @@ export class EditpageComponent implements OnInit {
         err => console.log(err)
       )
   }
-
-
 
 }

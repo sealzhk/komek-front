@@ -21,8 +21,8 @@
           <input required type="dateofbirth" class="form-control" placeholder="Enter date of birth" id="dateofbirth" value="{{userData.birthday}}" [(ngModel)]="user.birthday">
         </div>
         <label>Gender</label>
-        <div class="row mb-2">
-          <select class="form-control my-3" [(ngModel)]="selectedValue" (change)="onChangeSelect($event)">
+        <div class="row mb-2 d-flex justify-content-center">
+          <select class="form-control my-3" style="width: 80%" [(ngModel)]="selectedValue" (change)="onChangeSelect($event)">
             <option name="gender" [value] = "1">Male</option>
             <option name="gender" [value] = "2">Female</option>
           </select>

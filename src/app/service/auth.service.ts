@@ -47,4 +47,12 @@ export class AuthService {
   putUserPassById(id: String, user){
     return this.http.put<any>(this._profilesUrl + 'changepass/' + id, user);
   }
+
+  getUserDonations(id: String) {
+    return this.http.get<any>(this._profilesUrl + 'mydonations/' + id);
+  }
+
+  getUserDonationFundraising(id: String){
+    return this.http.get<any>(this._profilesUrl + 'mydonations/' + id);
+  }
 }

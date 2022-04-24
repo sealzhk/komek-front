@@ -2,9 +2,9 @@
   <div class="container-sm mx-auto my-5 pb-3 rounded shadow-lg" style="width: 50%">
     <h1 class="py-3" style="text-align: center">Edit profile</h1>
     <hr class="pb-2" style="width: 80%">
-    <img src="assets/images/mypage_example.png" class="shadow-lg rounded-circle mx-auto d-block mb-3" width="200px" alt="User photo">
-    <div class="d-flex justify-content-center">
-      <a class="btn mb-4" routerLink="/" role="button" style="background-color: #E5E5E5; width: 40%">Change photo</a>
+    <img class="shadow-lg rounded-circle mx-auto d-block mb-3" width="200px" src="{{userData.imagePath}}">
+    <div class="form-group d-flex justify-content-center">
+      <input type="file" class="form-control-file btn mb-4" name="image" id="photo" (change) = "selectImage($event)">
     </div>
     <div class="mx-3 pb-4">
       <form>

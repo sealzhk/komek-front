@@ -4,16 +4,14 @@
     <table class="table table-striped rounded mb-3">
       <thead>
       <tr>
-        <th>id</th>
         <th>Donation</th>
         <th>Amount of money</th>
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>1</td>
+      <tr *ngFor="let donation of donations">
         <td>Help Almaty</td>
-        <td>₸ 15000</td>
+        <td>₸ {{donation.donation}}</td>
       </tr>
       </tbody>
     </table>

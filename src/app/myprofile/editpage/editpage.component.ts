@@ -13,6 +13,7 @@ export class EditpageComponent implements OnInit {
   userID: string;
   selectedValue = null;
   numGender: string;
+  image: File = null;
 
   constructor(private _authService: AuthService,
               private _router: Router,
@@ -55,6 +56,12 @@ export class EditpageComponent implements OnInit {
         },
         err => console.log(err)
       )
+  }
+
+  selectImage(event) {
+    if (event.target.files.length > 0) {
+      this.image = <File>event.target.files[0];
+    }
   }
 
 }

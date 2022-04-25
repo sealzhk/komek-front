@@ -52,7 +52,4 @@ export class AuthService {
     return this.http.get<any>(this._profilesUrl + 'mydonations/' + id);
   }
 
-  getUserDonationFundraising(id: String){
-    return this.http.get<any>(this._profilesUrl + 'mydonations/' + id);
-  }
 }

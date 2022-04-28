@@ -10,6 +10,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class MypageComponent implements OnInit {
   userData: any = []
   userID: string;
+  isExist: boolean;
 
   constructor(private _authService: AuthService,
               private _router: Router,
@@ -21,8 +22,17 @@ export class MypageComponent implements OnInit {
       user => {
         this.userData = user
         console.log(this.userID)
+        if (this.userData.imagePath) {
+          console.log("yes");
+          this.isExist = true;
+        }
+        else {
+          console.log("no");
+          this.isExist = false;
+        }
       }
     )
+
   }
 
   onEdit() {

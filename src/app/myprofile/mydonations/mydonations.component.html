@@ -9,9 +9,9 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let donation of donations">
-        <td>{{fundraisings.title}}</td>
-        <td>₸ {{donation.donation}}</td>
+      <tr *ngFor="let need of needItems">
+        <td>{{need.fundName}}</td>
+        <td>₸ {{need.donationSum}}</td>
       </tr>
       </tbody>
     </table>

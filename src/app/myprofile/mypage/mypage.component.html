@@ -1,6 +1,8 @@
 <div class="row">
-  <div class="container-xl mt-3 mb-5 pb-3 py-2 shadow-lg rounded">
-    <img class="shadow-lg rounded-circle mx-auto my-auto d-block mb-5" width="175px" height="175px" src="{{userData.imagePath}}">
+  <div class="container-xl mt-5 mb-5 pb-3 py-2 shadow-lg rounded">
+    <div *ngIf="isExist">
+      <img class="shadow-lg rounded-circle mx-auto my-auto d-block mb-5" width="175px" height="175px" src="{{userData.imagePath}}">
+    </div>
     <h3 class=" mt-3 pb-5 display" style="text-align: center">{{userData.firstname}} {{userData.lastname}}</h3>
     <div class="rounded pt-4 pb-4 shadow-sm" style="background-color: #E9E9E9">
       <div class="row">

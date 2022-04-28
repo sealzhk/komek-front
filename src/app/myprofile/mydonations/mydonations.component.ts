@@ -10,15 +10,16 @@ import {FundraisingService} from "../../service/fundraising.service";
 })
 export class MydonationsComponent implements OnInit {
   userData: any = [];
-  donations: any = {};
-  fundraisings: any = {};
-
+  donations: any = [];
+  fundraisings: any = [];
+  needItems: any = [];
   userID: string;
   donation: string;
   fundraising: string;
-  private keys: string[];
+  private needObject: { fundName: string; donationSum: number };
 
   constructor(private _authService: AuthService,
+              private _fundraisingService: FundraisingService,
               private _router: Router,
               private _route: ActivatedRoute) { }
 
@@ -26,18 +27,21 @@ export class MydonationsComponent implements OnInit {
     this.userID = this._authService.getLoggedUser();
     this._authService.getUserDonations(this.userID)
       .subscribe(
-        res => this.donations = res['donations'],
-        err => console.log(err),
+        res => {
+          this.donations = res;
+          for(let i = 0; i < res.length; i++){
+            this._fundraisingService.getFundraisingById(res[i].fundraisingid)
+              .subscribe(
+                fund => {
+                  this.fundraisings[i] = fund;
+                  this.needItems[i] = {fundName: this.fundraisings[i].title,
+                                       donationSum: this.donations[i].donation};
+                }
+              );
+          }
+        },
+            err => console.log(err)
       );
-
-    this._authService.getUserDonations(this.userID)
-      .subscribe(
-        res => this.fundraisings = res['fundraisings'],
-        err => console.log(err),
-      );
-
-    console.log("tutu" + this.donations)
-    console.log("tutu" + this.fundraisings)
 
   }
 

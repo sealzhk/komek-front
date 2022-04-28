@@ -10,6 +10,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class EditpageComponent implements OnInit {
   userData: any = [];
   user: any = {};
+  userEdit: any = {};
   userID: string;
   selectedValue = null;
   numGender: string;
@@ -26,7 +27,7 @@ export class EditpageComponent implements OnInit {
         this.userData = user
         console.log(this.userID)
       }
-    )
+    );
   }
 
   onSelectProfile() {
@@ -48,7 +49,13 @@ export class EditpageComponent implements OnInit {
   }
 
   updateProfileData() {
-    this._authService.putUserById(this.userID, this.user)
+    const fd = new FormData();
+    fd.append('imagePath', this.image, this.image.name)
+    fd.append('firstname', this.user.firstname)
+    fd.append('lastname',  this.user.lastname)
+    fd.append('birthday',  this.user.birthday)
+    fd.append('gender',    this.user.gender)
+    this._authService.putUserById(this.userID, fd)
       .subscribe(
         res => {
           console.log(res)

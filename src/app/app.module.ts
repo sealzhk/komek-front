@@ -7,7 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { AuthService } from './service/auth.service';
 import { FundraisingService } from './service/fundraising.service';
@@ -19,10 +19,10 @@ import { FooterComponent } from './footer/footer.component';
 import { DonateComponent } from './donate/donate.component';
 import { FundraiserComponent } from './fundraiser/fundraiser.component';
 import { CategoryService } from './service/category.service';
-import {MypageComponent} from "./myprofile/mypage/mypage.component";
-import {ChangepassComponent} from "./myprofile/changepass/changepass.component";
-import {EditpageComponent} from "./myprofile/editpage/editpage.component";
-import {MydonationsComponent} from "./myprofile/mydonations/mydonations.component";
+import { MypageComponent } from "./myprofile/mypage/mypage.component";
+import { ChangepassComponent } from "./myprofile/changepass/changepass.component";
+import { EditpageComponent } from "./myprofile/editpage/editpage.component";
+import { MydonationsComponent } from "./myprofile/mydonations/mydonations.component";
 
 
 @NgModule({
@@ -41,13 +41,14 @@ import {MydonationsComponent} from "./myprofile/mydonations/mydonations.componen
     EditpageComponent,
     MydonationsComponent
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    AppRoutingModule,
-    NgbModule
-  ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpClientModule,
+        AppRoutingModule,
+        NgbModule,
+        ReactiveFormsModule
+    ],
   providers: [
     AuthService,
     AuthGuard,

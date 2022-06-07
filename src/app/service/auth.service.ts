@@ -40,8 +40,12 @@ export class AuthService {
     return this.http.get<any>(this._profilesUrl + id)
   }
 
-  putUserById(id: String, user){
-    return this.http.put<any>(this._profilesUrl + 'editpage/' + id, user);
+  putUserByIdImage(id: String, user){
+    return this.http.put<any>(this._profilesUrl + 'editpageimage/' + id, user);
+  }
+
+  putUserByIdWithoutImage(id: String, user){
+    return this.http.put<any>(this._profilesUrl + 'editpagewithoutimage/' + id, user);
   }
 
   putUserPassById(id: String, user){

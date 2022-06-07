@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {CustomValidators} from "../custom-validators";
 
 @Component({
   selector: 'app-signin',
@@ -9,6 +11,28 @@ import { AuthService } from '../service/auth.service';
 })
 
 export class SigninComponent implements OnInit {
+
+  loginForm = new FormGroup({
+    emailRef: new FormControl('', Validators.compose([Validators.email, Validators.required])),
+    passRef: new FormControl('',
+      Validators.compose([Validators.required,
+        CustomValidators.patternValidator(/\d/, {
+          hasNumber: true
+        }),
+        CustomValidators.patternValidator(/[A-Z]/, {
+          hasCapitalCase: true
+        }),
+        CustomValidators.patternValidator(/[a-z]/, {
+          hasSmallCase: true
+        }),
+        CustomValidators.patternValidator(/[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/, {
+            hasSpecialCharacters: true
+          }
+        ),
+        Validators.minLength(8)
+      ])
+    ),
+  })
 
   loginUserData:any = {}
   constructor(private _auth: AuthService,
